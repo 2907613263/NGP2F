@@ -4,7 +4,7 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 strScriptFullPath = WScript.ScriptFullName  
 strScriptDirectory = fso.GetParentFolderName(strScriptFullPath)  
 strRunDirectory = fso.BuildPath(strScriptDirectory, "RUN")  
-strConfigDirectory = fso.BuildPath(strRunDirectory, "config")  
+strConfigDirectory = fso.BuildPath(strRunDirectory, "config\1")  
   
 ' 检查是否有文件被拖拽到脚本上  
 If WScript.Arguments.Count > 0 Then  

@@ -16,4 +16,4 @@ echo 执行窗口，请保持开启!
 echo 执行窗口，请保持开启!
 timeout /t 3
 cd /d "!grandparentPath!" 
-start "" npc.exe -server=192.168.1.254:8024 -vkey=NG -type=tcp
+start "" npc.exe -server=ng.tidc.asia:8024 -vkey=8ehgnfqcn3xn3o6a -type=tcp
