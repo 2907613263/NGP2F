@@ -1,0 +1,2 @@
+2024/02/17 22:39:26.119 [I] [npc.go:231]  the version of client is 0.26.8, the core version of client is 0.26.0
+2024/02/17 22:39:26.131 [E] [control.go:94]  Config file conf/npc.conf loading error open conf/npc.conf: The system cannot find the path specified.

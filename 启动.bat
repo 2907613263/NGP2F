@@ -1,7 +1,7 @@
 %1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
 @ECHO OFF&PUSHD %~DP0 &TITLE NGP2F
 SETLOCAL EnableDelayedExpansion 
-mode con cols=46 lines=24
+mode con cols=46 lines=32
 
 color 9B
 set "inviteListUrl=http://110.42.178.244:8888/down/Ygszx1myrod5.txt"  
@@ -29,6 +29,7 @@ echo 6. 退出脚本
 echo 7. 用云配置链接
 echo 8. 关于程序
 echo 9. 用户协议
+echo 10.检查NAT类型
 echo -使用前请详细阅读HELP帮助指南中的内容-
 echo !!使用前请看用户协议，使用则默认同意协议内容!!
 echo ==============================================
@@ -59,22 +60,27 @@ echo 如果第一次使用，程序内没有内置任何配置文件
 echo 如果运行云端配置时无法正常使用，可能没有载入
 echo 云端连接的配置文件，请找发给你的好友或者主机
 echo 把云端配置发给你。
-echo.
 echo 如果你是第一次使用作为主机请用配置文件打开
 echo ==============================================
-echo P2P因为各用户的NAT类型，所以很难保障
-echo 正常穿透所以我们在后续版本会提供FRP
-echo 来支持那些无法正常穿透的玩家！
+echo P2P因为各用户的NAT类型，所以很难保障正常穿透所
+echo 以我们在后续版本会提供FRP来支持那些无法正常穿
+echo 透的玩家！
 echo ==============================================
-echo 我会用心打造这个联机程序的，因为提供
-echo 云服务器的缘故，为那些无法使用P2P的
-echo 用户提供了FRP穿透服务。日后可能会收
-echo 取一定费用作为服务器的补贴！
+echo 我会用心打造这个联机程序的，因为提供云服务器的
+echo 缘故,为那些无法使用P2P的用户提供了FRP穿透服务。
+echo 日后可能会收取一定费用作为服务器的补贴！
 echo ==============================================
-echo 使用云配置连接的时候需要注意，备注文
-echo 件名为A或B等英文字母，使用云端配置的
-echo 如果想预制多条配置，请依次改为A-Z的
-echo 文件名字，且保证文件后缀为.bat
+echo 使用云配置连接的时候需要注意，备注文件名为A或B
+echo 等英文字母，使用云端配置的如果想预制多条配置，
+echo 请依次改为A-Z的文件名字，且保证文件后缀为.bat
+echo ==============================================
+echo 如果多次无法打通，请尝试执行10的检查NAT类型。
+echo 弹出来的窗口选择[RFC 3489]后点击TEST。等待结果
+echo Public 完全没有阻隔   
+echo FullCone 容易穿透
+echo RestrictedCone 较易穿透 
+echo PortRestrictedCone 可能受阻
+echo Symmetric 完全受阻
 echo ==============================================
 echo 如果运行过更新，且正常运行后
 echo 前版本备份在C:\Program Files\nps\old
@@ -109,6 +115,9 @@ echo "                                   ";
 )else if "%user_input%"=="9" (
     start "" "%loce%\用户协议.pdf"
     echo 已执行打开用户协议PDF文件指令
+)else if "%user_input%"=="10" (
+    start "" "%loce%\NatTypeTester3.2.exe"
+    echo 已执行打开NAT检测
 )
 
 pause
